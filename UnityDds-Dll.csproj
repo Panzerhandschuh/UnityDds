@@ -44,11 +44,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Dds\DdsFile.cs" />
-    <Compile Include="Assets\Scripts\Dds\DdsHeader.cs" />
-    <Compile Include="Assets\Scripts\Dds\DdsPixelFormat.cs" />
-    <Compile Include="Assets\Scripts\Dds\DdsTextureLoader.cs" />
-    <Compile Include="Assets\Scripts\Dds\Utilities\BinaryReaderExtensions.cs" />
+    <Compile Include="Assets\Scripts\DdsFile.cs" />
+    <Compile Include="Assets\Scripts\DdsHeader.cs" />
+    <Compile Include="Assets\Scripts\DdsPixelFormat.cs" />
+    <Compile Include="Assets\Scripts\DdsTextureLoader.cs" />
+    <Compile Include="Assets\Scripts\Utilities\BinaryReaderExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
