@@ -1,0 +1,10 @@
+{
+    "name": "UnityDds.Scenes",
+    "references": [
+        "UnityDds"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false
+}
