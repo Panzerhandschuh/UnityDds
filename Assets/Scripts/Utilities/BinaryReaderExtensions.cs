@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace UnityDds.Utilities
 {
-	public static class BinaryReaderExtensions
+	internal static class BinaryReaderExtensions
 	{
 		/// <summary>
 		/// Reads an array, using the specified length to indicate the number of elements
