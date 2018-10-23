@@ -8,11 +8,8 @@ public class LoadDds : MonoBehaviour
 
 	private void Awake()
 	{
-		using (var stream = File.Open(ddsPath, FileMode.Open))
-		{
-			var material = GetComponent<Renderer>().material;
-			var texture = DdsTextureLoader.LoadTexture(stream);
-			material.SetTexture("_MainTex", texture);
-		}
+		var material = GetComponent<Renderer>().material;
+		var texture = DdsTextureLoader.LoadTexture(ddsPath);
+		material.SetTexture("_MainTex", texture);
 	}
 }

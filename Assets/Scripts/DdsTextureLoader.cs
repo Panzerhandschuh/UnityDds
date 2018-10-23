@@ -6,6 +6,12 @@ namespace UnityDds
 {
 	public static class DdsTextureLoader
 	{
+		public static Texture2D LoadTexture(string path)
+		{
+			using (var stream = File.Open(path, FileMode.Open))
+				return LoadTexture(stream);
+		}
+
 		public static Texture2D LoadTexture(Stream stream)
 		{
 			var file = GetDdsFile(stream);
