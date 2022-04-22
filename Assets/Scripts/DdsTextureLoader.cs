@@ -16,7 +16,7 @@ namespace UnityDds
 		{
 			var file = GetDdsFile(stream);
 			var format = GetTextureFormat(file.header.ddspf.dwFourCC);
-			var hasMipMaps = (file.header.dwMipMapCount > 1);
+			var hasMipMaps = file.header.dwMipMapCount > 1;
 
 			var texture = new Texture2D(file.header.dwWidth, file.header.dwHeight, format, hasMipMaps);
 			texture.LoadRawTextureData(file.data);
@@ -44,7 +44,7 @@ namespace UnityDds
 				case "BC5U":
 					return TextureFormat.BC5;
 				default:
-					throw new Exception("DDS file has an invalid or unsupported texture format");
+					throw new Exception($"DDS file has an invalid or unsupported texture format ({format})");
 			}
 		}
 	}
