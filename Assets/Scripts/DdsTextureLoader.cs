@@ -6,19 +6,19 @@ namespace UnityDds
 {
 	public static class DdsTextureLoader
 	{
-		public static Texture2D LoadTexture(string path)
+		public static Texture2D LoadTexture(string path, bool isLinear = false)
 		{
 			using (var stream = File.Open(path, FileMode.Open))
-				return LoadTexture(stream);
+				return LoadTexture(stream, isLinear);
 		}
 
-		public static Texture2D LoadTexture(Stream stream)
+		public static Texture2D LoadTexture(Stream stream, bool isLinear = false)
 		{
 			var file = GetDdsFile(stream);
 			var format = GetTextureFormat(file.header.ddspf.dwFourCC);
 			var hasMipMaps = file.header.dwMipMapCount > 1;
 
-			var texture = new Texture2D(file.header.dwWidth, file.header.dwHeight, format, hasMipMaps);
+			var texture = new Texture2D(file.header.dwWidth, file.header.dwHeight, format, hasMipMaps, isLinear);
 			texture.LoadRawTextureData(file.data);
 			texture.Apply(false, true);
 
