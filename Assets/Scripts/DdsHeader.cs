@@ -5,39 +5,39 @@ namespace UnityDds
 {
 	public class DdsHeader
 	{
-		public int dwSize;
-		public int dwFlags;
-		public int dwHeight;
-		public int dwWidth;
-		public int dwPitchOrLinearSize;
-		public int dwDepth;
-		public int dwMipMapCount;
-		public int[] dwReserved1; // 11 ints
+		public uint size;
+		public uint flags;
+		public uint height;
+		public uint width;
+		public uint pitchOrLinearSize;
+		public uint depth;
+		public uint mipMapCount;
+		public uint[] reserved1; // 11 ints
 		public DdsPixelFormat ddspf;
-		public int dwCaps;
-		public int dwCaps2;
-		public int dwCaps3;
-		public int dwCaps4;
-		public int dwReserved2;
+		public uint caps;
+		public uint caps2;
+		public uint caps3;
+		public uint caps4;
+		public uint reserved2;
 
 		public static DdsHeader Deserialize(BinaryReader reader)
 		{
 			var header = new DdsHeader();
 
-			header.dwSize = reader.ReadInt32();
-			header.dwFlags = reader.ReadInt32();
-			header.dwHeight = reader.ReadInt32();
-			header.dwWidth = reader.ReadInt32();
-			header.dwPitchOrLinearSize = reader.ReadInt32();
-			header.dwDepth = reader.ReadInt32();
-			header.dwMipMapCount = reader.ReadInt32();
-			header.dwReserved1 = reader.ReadArray((x) => x.ReadInt32(), 11);
+			header.size = reader.ReadUInt32();
+			header.flags = reader.ReadUInt32();
+			header.height = reader.ReadUInt32();
+			header.width = reader.ReadUInt32();
+			header.pitchOrLinearSize = reader.ReadUInt32();
+			header.depth = reader.ReadUInt32();
+			header.mipMapCount = reader.ReadUInt32();
+			header.reserved1 = reader.ReadArray((x) => x.ReadUInt32(), 11);
 			header.ddspf = DdsPixelFormat.Deserialize(reader);
-			header.dwCaps = reader.ReadInt32();
-			header.dwCaps2 = reader.ReadInt32();
-			header.dwCaps3 = reader.ReadInt32();
-			header.dwCaps4 = reader.ReadInt32();
-			header.dwReserved2 = reader.ReadInt32();
+			header.caps = reader.ReadUInt32();
+			header.caps2 = reader.ReadUInt32();
+			header.caps3 = reader.ReadUInt32();
+			header.caps4 = reader.ReadUInt32();
+			header.reserved2 = reader.ReadUInt32();
 
 			return header;
 		}
